@@ -3,3 +3,4 @@ data/
 backend/node_modules/
 backend/coverage/
 frontend/node_modules/
+backend/.nyc_output/
