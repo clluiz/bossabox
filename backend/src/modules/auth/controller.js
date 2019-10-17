@@ -9,7 +9,14 @@ exports.callback = async ctx => {
     if (!ctx.state.user) {
       throw new Error('user null');
     }
+    ctx.redirect('/');
   } catch (error) {
     console.log(error);
   }
+};
+
+exports.logout = async ctx => {
+  ctx.logout();
+  ctx.session = null;
+  ctx.redirect('/');
 };

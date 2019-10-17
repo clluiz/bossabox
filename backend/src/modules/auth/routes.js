@@ -12,4 +12,6 @@ authRoutes.get(
   controller.callback
 );
 
+authRoutes.get('/logout', controller.logout);
+
 module.exports = authRoutes.routes();
