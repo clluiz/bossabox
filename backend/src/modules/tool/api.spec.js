@@ -11,7 +11,7 @@ describe('Tool API integrations test', () => {
   after(async () => {
     await Tool.deleteMany();
   });
-  
+
   describe('GET /tools', () => {
     before(async () => {
       app = await server.toTest();
@@ -50,7 +50,7 @@ describe('Tool API integrations test', () => {
         expect(response.body.length).to.be.equal(3);
       });
     });
-    
+
     describe('with tags in query', () => {
       it('should return only Tools with specified tags', async () => {
         const response = await request(app.callback()).get(
@@ -62,7 +62,7 @@ describe('Tool API integrations test', () => {
       });
     });
   });
-  
+
   describe('POST /tools', () => {
     it('should have 201 status and return created tool', async () => {
       const response = await request(app.callback())
@@ -78,7 +78,7 @@ describe('Tool API integrations test', () => {
       expect(response.body).to.have.property('_id');
     });
   });
-  
+
   describe('DELETE /tools', () => {
     let toolToRemove;
     before(async () => {

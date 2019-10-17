@@ -7,9 +7,9 @@ dotenv.config();
 
 const toolRoutes = new Router({ prefix: '/tools' });
 
-if(process.env.ENV !== 'test') {
+if (process.env.ENV !== 'test') {
   toolRoutes.use(authorization);
-};
+}
 
 /**
  * @swagger
@@ -24,8 +24,8 @@ if(process.env.ENV !== 'test') {
  *       200:
  *         description: An array of tools
  *       400:
- *         description: Bad request 
- *       401: 
+ *         description: Bad request
+ *       401:
  *         description: Unauthorized
  *     parameters:
  *      - in: query
