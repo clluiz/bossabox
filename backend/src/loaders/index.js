@@ -6,5 +6,5 @@ exports.init = async app => {
     await mongooseLoader();
   }
   console.log(`Connected Mongo on ${process.env.MONGO_URI}`);
-  await appLoader(app);
+  appLoader(app);
 };

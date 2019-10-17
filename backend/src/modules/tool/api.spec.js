@@ -51,7 +51,9 @@ describe('Tool API integrations test', () => {
     });
     describe('with tags in query', () => {
       it('should return only Tools with specified tags', async () => {
-        const response = await request(app.callback()).get('/tools?tags=tool 1&tags=svn');
+        const response = await request(app.callback()).get(
+          '/tools?tags=tool 1&tags=svn'
+        );
         expect(response.statusCode).to.be.equal(200);
         expect(response.body).to.be.an('array');
         expect(response.body.length).to.be.equal(2);
@@ -63,8 +65,8 @@ describe('Tool API integrations test', () => {
       const response = await request(app.callback())
         .post('/tools')
         .send({
-          title : 'New tool',
-          description : 'description',
+          title: 'New tool',
+          description: 'description',
           link: 'https://newtool.com',
           tags: ['tag 1', 'tag 2']
         });
@@ -77,15 +79,17 @@ describe('Tool API integrations test', () => {
     let toolToRemove;
     before(async () => {
       toolToRemove = await Tool.create({
-        title : 'Tool to remove',
-        description : 'Tool to remove',
-        link : 'https://tooltoremove.com',
-        tags : ['tags']
+        title: 'Tool to remove',
+        description: 'Tool to remove',
+        link: 'https://tooltoremove.com',
+        tags: ['tags']
       });
     });
     it('should have 204', async () => {
-      const response = await request(app.callback()).delete(`/tools/${toolToRemove._id}`);
+      const response = await request(app.callback()).delete(
+        `/tools/${toolToRemove._id}`
+      );
       expect(response.statusCode).to.be.equal(204);
     });
-  });  
+  });
 });
