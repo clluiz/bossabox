@@ -1,8 +1,11 @@
 const Router = require('koa-router');
 const koaBody = require('koa-body');
 const controller = require('./controller');
+const authorization = require('../../loaders/authorization');
 
 const toolRoutes = new Router({ prefix: '/tools' });
+
+toolRoutes.use(authorization);
 
 /**
  * @swagger
