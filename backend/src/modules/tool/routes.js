@@ -2,10 +2,14 @@ const Router = require('koa-router');
 const koaBody = require('koa-body');
 const controller = require('./controller');
 const authorization = require('../../loaders/authorization');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const toolRoutes = new Router({ prefix: '/tools' });
 
-toolRoutes.use(authorization);
+if(process.env.ENV !== 'test') {
+  toolRoutes.use(authorization);
+};
 
 /**
  * @swagger
@@ -19,6 +23,10 @@ toolRoutes.use(authorization);
  *     responses:
  *       200:
  *         description: An array of tools
+ *       400:
+ *         description: Bad request 
+ *       401: 
+ *         description: Unauthorized
  *     parameters:
  *      - in: query
  *        name: tags
@@ -42,6 +50,8 @@ toolRoutes.get('/', koaBody({ json: true }), controller.list);
  *         description: "The resource has been created."
  *       400:
  *         description: "An error has occured trying to create the resource."
+ *       401:
+ *         description: Unauthorized
  *     parameters:
  *       -
  *         in: "body"
@@ -75,6 +85,8 @@ toolRoutes.post('/', koaBody({ json: true }), controller.save);
  *     responses:
  *       204:
  *         description: "No response"
+ *       401:
+ *         description: Unauthorized
  *       404:
  *         description: "Position not found"
  *     parameters:
