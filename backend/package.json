@@ -44,5 +44,8 @@
     "hooks": {
       "pre-push": "npm run prettier && npm test"
     }
+  },
+  "engines": {
+    "node" : "11.11.0"
   }
 }
