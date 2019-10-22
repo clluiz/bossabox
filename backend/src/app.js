@@ -6,7 +6,7 @@ exports.start = async () => {
   dotenv.config();
   const app = new koa();
   await loaders.init(app);
-  return app.listen(5000, () => console.log('Listening on port 5000'));
+  return app.listen(process.env.PORT, () => console.log('Listening on port 5000'));
 };
 
 exports.toTest = async () => {
