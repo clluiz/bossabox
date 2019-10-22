@@ -1,12 +1,15 @@
 const swaggerJsDoc = require('swagger-jsdoc');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 const swaggerDefinition = {
   info: {
     title: 'Tools swagger API',
     version: '1.0.0',
     description: 'Documentação da API para tools'
   },
-  host: '/',
+  host: process.env.HOST,
   basePath: '/'
 };
 
