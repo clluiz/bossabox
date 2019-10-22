@@ -93,6 +93,7 @@ toolRoutes.post('/', koaBody({ json: true }), controller.save);
  *       -
  *         in: "path"
  *         name: "id"
+ *         type: string
  *         description: "Id of position to remove"
  *         required: true
  */
