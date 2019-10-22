@@ -9,7 +9,7 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'Documentação da API para tools'
   },
-  host: process.env.HOST
+  host: process.env.BASE_URI
 };
 
 const options = {
