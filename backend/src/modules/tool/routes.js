@@ -17,7 +17,8 @@ if (process.env.ENV !== 'test') {
  *   get:
  *     tags:
  *       - Tools
- *     description: Returns all tools
+ *     summary: "Get a list of tools"
+ *     description: "Get a list of tools"
  *     produces:
  *       - application/json
  *     responses:
