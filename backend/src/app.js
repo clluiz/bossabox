@@ -7,7 +7,7 @@ exports.start = async () => {
   const app = new koa();
   await loaders.init(app);
   return app.listen(process.env.PORT, () =>
-    console.log(`Listening on port {$process.env.PORT}`)
+    console.log(`Listening on port ${process.env.PORT}`)
   );
 };
 
