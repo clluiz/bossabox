@@ -30,10 +30,9 @@ if (process.env.ENV !== 'test') {
  *     parameters:
  *      - in: query
  *        name: tags
- *        schema:
- *          type: array
- *          items:
- *            type: string
+ *        type: array
+ *        items:
+ *          type: string
  */
 toolRoutes.get('/', koaBody({ json: true }), controller.list);
 /**
