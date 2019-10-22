@@ -8,7 +8,7 @@ module.exports = koaSwagger({
   routePrefix: '/',
   swaggerOptions: {
     url: '/swagger.json',
-    oauth2RedirectUrl: process.env.BASE_URI
+    oauth2RedirectUrl: process.env.FULL_BASE_URL
   },
   oauthOptions: {
     clientId: process.env.AUTH0_CLIENT_ID
