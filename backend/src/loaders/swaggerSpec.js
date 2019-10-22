@@ -11,10 +11,10 @@ const swaggerDefinition = {
   },
   host: process.env.BASE_URI,
   securityDefinitions: {
-    tool_auth: { 
-      type             : 'oauth2',
-      flow             : 'implicit',
-      authorizationUrl : 'https://dev-k95jas1q.auth0.com/authorize'
+    tool_auth: {
+      type: 'oauth2',
+      flow: 'implicit',
+      authorizationUrl: 'https://dev-k95jas1q.auth0.com/authorize'
     }
   }
 };
