@@ -11,6 +11,7 @@ module.exports = koaSwagger({
     oauth2RedirectUrl: process.env.FULL_BASE_URL
   },
   oauthOptions: {
-    clientId: process.env.AUTH0_CLIENT_ID
+    clientId: process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET
   }
 });
