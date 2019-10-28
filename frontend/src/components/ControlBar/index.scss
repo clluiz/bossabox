@@ -1,0 +1,16 @@
+.control-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  .control-bar__search {
+    input {
+      margin-right: 5px;
+    }
+    .search {
+      border: 1px solid #EBEAED;
+      border-radius: 5px;
+      background: #F5F4F6 0% 0% no-repeat padding-box;
+    }
+  }
+}

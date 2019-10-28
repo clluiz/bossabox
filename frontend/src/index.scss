@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('./fonts/SourceSansPro-Black.ttf');
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+  color: #170C3A;
+  height: 100%;
+  background-color: #ECECEC;
+}
+
+#root {
+  height: 100%;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+.vuttr-button {
+  border-radius: 5px;
+  opacity: 1;
+  outline: none;
+  border: none;
+  width: 175px;
+  height: 50px;
+}
+
+.btn-add {
+  color: #FFFFFF;
+  background-color: #0DCB7D;
+  &:hover {
+    background-color: #10B26C;
+  }
+  &:active {
+    background-color: #0E995D;
+  }
+  &:disabled {
+    background-color: #88EDC4;
+  }
+  .svg-inline--fa {
+    margin-right: 5px;
+  }
+}
+
+.btn-remove {
+  color: #FFFFFF;
+  background-color: #F95E5A;
+  &:hover {
+    background-color: #CC4C4C;
+  }
+  &:active {
+    background-color: #A53F3F;
+  }
+  &:disabled {
+    background-color: #FCAEAC;
+  }
+  .svg-inline--fa {
+    margin-right: 5px;
+  }
+}
