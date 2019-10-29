@@ -4,12 +4,32 @@
   margin-top: 20px;
   padding: 10px;
   .control-bar__search {
+
+    .group {
+      position: relative;
+      background-color: #F5F4F6;
+      background-color: transparent;
+    }
+
+    .group:before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: url('../../icons/Icon-Search-2px.svg') no-repeat;
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;   
+    }
+
     input {
       margin-right: 5px;
+      padding: 10px 40px;
     }
     .search {
       border: 1px solid #EBEAED;
       border-radius: 5px;
+      height: 50px;
       background: #F5F4F6 0% 0% no-repeat padding-box;
     }
   }

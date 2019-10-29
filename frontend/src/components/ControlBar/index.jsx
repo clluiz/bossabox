@@ -7,7 +7,9 @@ export default (props) => {
   return (
     <div className="control-bar">
       <div className="control-bar__search">
-        <input type="text" placeholder="Search" className="search" />
+        <label className="group">
+          <input type="text" placeholder="Search" className="search" />
+        </label>
         <input id="tags-only" type="checkbox" />
         <label for="tags-only">search in tags only</label>
       </div>

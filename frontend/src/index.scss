@@ -54,18 +54,12 @@ h2 {
 }
 
 .btn-remove {
-  color: #FFFFFF;
-  background-color: #F95E5A;
-  &:hover {
-    background-color: #CC4C4C;
-  }
-  &:active {
-    background-color: #A53F3F;
-  }
-  &:disabled {
-    background-color: #FCAEAC;
-  }
+  border: none;
+  color: #170C3A;
+  background-color: transparent;
+  outline: none !important;
   .svg-inline--fa {
     margin-right: 5px;
+    color: red;
   }
 }
