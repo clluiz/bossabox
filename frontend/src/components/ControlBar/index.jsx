@@ -36,7 +36,6 @@ class ControlBar extends Component {
 
   onToggleTagsOnly(e) {
     const checked = e.target.checked;
-    console.log(checked);
     this.setState({
       tagsOnly : checked
     });
