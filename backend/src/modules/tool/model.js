@@ -25,6 +25,6 @@ const schema = new Schema(
   }
 );
 
-schema.index({ '$**' : 'text' });
+schema.index({ '$**': 'text' });
 
 module.exports = mongoose.model('Tool', schema);

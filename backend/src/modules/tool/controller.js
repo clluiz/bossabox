@@ -13,12 +13,18 @@ exports.save = async ctx => {
 
 exports.list = async ctx => {
   try {
-    const { tags, $search } = ctx.request.query;
+    const { tag, $search } = ctx.request.query;
     let query = {};
-    if (tags) {
-      query = { tags: { $in: tags } };
+    if (tag) {
+      regex = tag.map(t => new RegExp(t, 'i'));
+      query = { tags: { $in: regex } };
     } else if ($search) {
-      query = { $text : { $search } };
+      query = { $or : [ 
+        { title : { $regex : $search, $options : 'i' } },
+        { link : { $regex : $search, $options : 'i' } },
+        { description : { $regex : $search, $options : 'i' } },
+        { tags : { $elemMatch : { $regex : $search, $options : 'i' } } }
+      ] }
     }
 
     const tools = await services.list(query);

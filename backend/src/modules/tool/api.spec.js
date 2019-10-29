@@ -54,7 +54,7 @@ describe('Tool API integrations test', () => {
     describe('with tags in query', () => {
       it('should return only Tools with specified tags', async () => {
         const response = await request(app.callback()).get(
-          '/tools?tags=tool 1&tags=svn'
+          '/tools?tag=tool 1&tag=svn'
         );
         expect(response.statusCode).to.be.equal(200);
         expect(response.body).to.be.an('array');

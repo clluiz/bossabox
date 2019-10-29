@@ -3,17 +3,10 @@ import ControlBar from './components/ControlBar';
 import ToolCard from './components/ToolCard';
 
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { searchInAllFields } from './app.actions';
 
 import './App.css';
 
 class App extends Component {
-
-  componentDidMount() {
-    this.props.searchInAllFields();
-  }
-
   render() {
     return (
       <div className="App container">
@@ -21,7 +14,7 @@ class App extends Component {
         <h2>Very Useful Tools to Remember</h2>
         <ControlBar />
         {
-          this.props.app.tools.map(tool =><ToolCard {...tool} />)
+          this.props.app.tools.map((tool, index) => { return <ToolCard {...tool} key={index}  /> })
         }
       </div>
     );
@@ -29,10 +22,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({ app: state.app });
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ searchInAllFields }, dispatch);
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(App);

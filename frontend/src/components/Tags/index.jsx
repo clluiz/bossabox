@@ -5,7 +5,7 @@ export default (props) => {
   return (
     <ul className="tags">
       {
-        props.tags.map(tag => <li>#{tag}</li>)
+        props.tags.map(tag => <li key={'tag' + tag}>#{tag}</li>)
       }
     </ul>
   )

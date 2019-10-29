@@ -4,7 +4,7 @@ import { list } from './api/tools';
 export const searchInAllFields = search => async dispach => {
   let query = '';
   if(search) {
-    query =  { $search: { $text : search } };
+    query =  `$search=${search}`;
   }
   
   const tools = await list(query);
@@ -17,7 +17,7 @@ export const searchInAllFields = search => async dispach => {
 export const searchInTagsOnly = search => async dispach => {
   let query = '';
   if(search && search.length > 0) {
-    query = search.split(' ').map(tag => `tags=${tag}`).join('&');
+    query = search.split(' ').map(tag => `tag=${tag}`).join('&');
   }
 
   const tools = await list(query);
