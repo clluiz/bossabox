@@ -13,11 +13,14 @@ exports.save = async ctx => {
 
 exports.list = async ctx => {
   try {
-    const { tags } = ctx.request.query;
+    const { tags, $search } = ctx.request.query;
     let query = {};
     if (tags) {
       query = { tags: { $in: tags } };
+    } else if ($search) {
+      query = { $text : { $search } };
     }
+
     const tools = await services.list(query);
     ctx.status = 200;
     ctx.body = tools;

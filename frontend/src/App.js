@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
 import ControlBar from './components/ControlBar';
 import ToolCard from './components/ToolCard';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { searchInAllFields } from './app.actions';
+
+import './App.css';
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tools: [{
-        title : 'Notion',
-        link  : 'https://www.notion.so',
-        description : 'Write, plan, collaborate, and get organized. Notion is all you need — in one tool.',
-        tags : ['organization', 'plan', 'collaboration', 'writing', 'calendar']
-      }]
-    }
+
+  componentDidMount() {
+    this.props.searchInAllFields();
   }
-  
+
   render() {
     return (
       <div className="App container">
@@ -23,11 +21,18 @@ class App extends Component {
         <h2>Very Useful Tools to Remember</h2>
         <ControlBar />
         {
-          this.state.tools.map(tool =><ToolCard {...tool} />)
+          this.props.app.tools.map(tool =><ToolCard {...tool} />)
         }
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({ app: state.app });
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ searchInAllFields }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

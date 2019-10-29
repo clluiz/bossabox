@@ -34,6 +34,10 @@ if (process.env.ENV !== 'test') {
  *        type: array
  *        items:
  *          type: string
+ *      - in: query
+ *        name: $search
+ *        description: Find text in all fields
+ *        type: String
  */
 toolRoutes.get('/', koaBody({ json: true }), controller.list);
 /**
