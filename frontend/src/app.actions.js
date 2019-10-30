@@ -1,5 +1,5 @@
 import * as actions from './app.actionTypes';
-import { list, remove } from './api/tools';
+import { list, remove, create } from './api/tools';
 
 export const searchInAllFields = search => async dispach => {
   let query = '';
@@ -29,5 +29,10 @@ export const searchInTagsOnly = search => async dispach => {
 
 export const removeTool = toolId => async dispatch => {
   await remove(toolId);
-  dispatch(searchInAllFields())
+  dispatch(searchInAllFields());
+};
+
+export const createTool = tool => async dispatch => {
+  await create(tool);
+  dispatch(searchInAllFields());
 };

@@ -6,15 +6,19 @@ import { bindActionCreators  } from 'redux';
 import { searchInAllFields, searchInTagsOnly  } from '../../app.actions';
 import './index.scss';
 
+import AddTool from '../AddTool';
+
 class ControlBar extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      tagsOnly : false
+      tagsOnly   : false,
+      addingTool : false
     }
     this.onChangeSearch = this.onChangeSearch.bind(this);
     this.onToggleTagsOnly = this.onToggleTagsOnly.bind(this);
+    this.addTool = this.addTool.bind(this);
   }
 
   componentDidMount() {
@@ -41,20 +45,28 @@ class ControlBar extends Component {
     });
   }
 
+  addTool() {
+    this.setState({
+      addingTool : true
+    });
+  }
+
   render() {
+    const { tagsOnly, addingTool } = this.state;
     return (
       <div className="control-bar">
         <div className="control-bar__search">
           <label className="group">
             <input type="text" placeholder="Search" className="search" onChange={this.onChangeSearch} />
           </label>
-          <input id="tags-only" type="checkbox" checked={this.state.tagsOnly} onChange={this.onToggleTagsOnly} />
+          <input id="tags-only" type="checkbox" checked={tagsOnly} onChange={this.onToggleTagsOnly} />
           <label htmlFor="tags-only">search in tags only</label>
         </div>
-        <button className="vuttr-button btn-add">
+        <button className="vuttr-button btn-add" onClick={this.addTool}>
           <FontAwesomeIcon icon={faPlus} />
           Add
         </button>
+        <AddTool show={addingTool} />
       </div>
     )
   }

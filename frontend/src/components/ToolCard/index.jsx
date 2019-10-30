@@ -33,7 +33,6 @@ class ToolCard extends Component {
   };
 
   confirmRemove() {
-    console.log('a');
     this.props.removeTool(this.props._id);
   }
   

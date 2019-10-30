@@ -19,3 +19,12 @@ export const remove = async(toolId) => {
     console.log(error);
   }
 };
+
+export const create = async(tool) => {
+  try {
+    const response = await axios.post(`${BASE_URL}tools`, tool);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }  
+}
