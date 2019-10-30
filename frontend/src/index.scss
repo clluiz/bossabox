@@ -63,3 +63,20 @@ h2 {
     color: red;
   }
 }
+
+.btn-cancel {
+  border: none;
+  color: #365DF0;
+  background-color: #E1E7FD;
+  outline: none !important;
+  &:hover {
+    background-color: #CAD6FC;
+  }
+  &:active {
+    background-color: #B9C6FA;
+  }
+  &:disabled {
+    background-color: #E1E7FD;
+    color: #B9C6FA;
+  }  
+}

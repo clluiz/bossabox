@@ -16,7 +16,7 @@ exports.list = async ctx => {
     let { tag, $search } = ctx.request.query;
     let query = {};
     if (tag) {
-      if(!Array.isArray(tag)) {
+      if (!Array.isArray(tag)) {
         tag = [tag];
       }
       regex = tag.map(t => new RegExp(t, 'i'));
