@@ -7,7 +7,7 @@ import './index.scss';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { removeTool } from '../../app.actions';
+import { removeTool, toggleRemoveModal } from '../../app.actions';
 
 class ToolCard extends Component {
   constructor(props) {
@@ -21,15 +21,11 @@ class ToolCard extends Component {
   }
 
   removeTool() {
-    this.setState({
-      showRemove : true
-    })
+    this.props.toggleRemoveModal(true);
   };
 
   cancelRemove() {
-    this.setState({
-      showRemove : false
-    });
+    this.props.toggleRemoveModal(false);
   };
 
   confirmRemove() {
@@ -51,7 +47,7 @@ class ToolCard extends Component {
           {description}
         </p>
         <Tags tags={tags} />
-        <Modal show={this.state.showRemove}>
+        <Modal show={this.props.app.showingRemoveModal} onHide={this.cancelRemove}>
           <Modal.Header closeButton>
             <Modal.Title>
               <FontAwesomeIcon icon={faWindowClose} />
@@ -73,6 +69,7 @@ class ToolCard extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ removeTool }, dispatch);
+const mapStateToProps = state => ({ app : state.app });
+const mapDispatchToProps = dispatch => bindActionCreators({ removeTool, toggleRemoveModal }, dispatch);
 
-export default connect(null, mapDispatchToProps)(ToolCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ToolCard);

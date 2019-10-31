@@ -13,6 +13,7 @@ class AddTool extends Component {
   constructor(props) {
     super(props);
     this.onClose = this.onClose.bind(this);
+    this.onExited = this.onExited.bind(this);
   }
   onClose() {
     this.props.resetForm({
@@ -22,6 +23,15 @@ class AddTool extends Component {
       link        : ''
     });
     this.props.toggleAddModal(false);
+  }
+
+  onExited() {
+    this.props.resetForm({
+      title       : '',
+      description : '',
+      tags        : '',
+      link        : ''      
+    });
   }
 
   render() {
@@ -34,7 +44,7 @@ class AddTool extends Component {
       show
     } = this.props;
     return (
-      <Modal show={show} onHide={this.onClose}>
+      <Modal show={show} onHide={this.onClose} onExited={this.onExited}>
         <Modal.Header closeButton>
           <Modal.Title>Add a new tool</Modal.Title>
         </Modal.Header>

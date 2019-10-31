@@ -31,6 +31,7 @@ export const searchInTagsOnly = search => async dispach => {
 export const removeTool = toolId => async dispatch => {
   await remove(toolId);
   dispatch(searchInAllFields());
+  dispatch(toggleRemoveModal(false));
 };
 
 export const createTool = tool => async dispatch => {
@@ -46,6 +47,13 @@ export const createTool = tool => async dispatch => {
 export const toggleAddModal = (value) => {
   return {
     type    : actions.TOGGLE_ADD_MODAL,
+    payload : value
+  }
+};
+
+export const toggleRemoveModal = (value) => {
+  return {
+    type    : actions.TOOGLE_REMOVE_MODAL,
     payload : value
   }
 };

@@ -1,2 +1,3 @@
-export const SEARCH_TOOLS = 'SEARCH_TOOLS';
-export const TOGGLE_ADD_MODAL   = 'TOGGLE_ADD_MODAL';
+export const SEARCH_TOOLS        = 'SEARCH_TOOLS';
+export const TOGGLE_ADD_MODAL    = 'TOGGLE_ADD_MODAL';
+export const TOOGLE_REMOVE_MODAL = 'TOGGLE_REMOVE_MODAL';

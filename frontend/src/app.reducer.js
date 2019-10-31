@@ -1,8 +1,9 @@
-import * as actions from './app.actionTypes';
+import * as actions from "./app.actionTypes";
 
 const initialState = {
-  tools           : [],
-  showingAddModal : false
+  tools              : [],
+  showingAddModal    : false,
+  showingRemoveModal : false
 };
 
 export default (state = initialState, action) => {
@@ -10,12 +11,17 @@ export default (state = initialState, action) => {
     case actions.SEARCH_TOOLS:
       return {
         ...state,
-        tools: action.payload,
+        tools: action.payload
       };
     case actions.TOGGLE_ADD_MODAL:
       return {
         ...state,
-        showingAddModal : action.payload
+        showingAddModal: action.payload
+      };
+    case actions.TOOGLE_REMOVE_MODAL:
+      return {
+        ...state,
+        showingRemoveModal: action.payload
       };
     default:
       return state;
