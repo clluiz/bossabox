@@ -17,7 +17,6 @@ class AddTool extends Component {
       handleChange,
       errors,
       touched,
-      back,
       show
     } = this.props;
     return (
@@ -32,7 +31,6 @@ class AddTool extends Component {
               type="text"
               name="title"
               required
-              className="form-control"
               placeholder="Tool"
               onChange={handleChange}
               values={values.title}
@@ -46,7 +44,6 @@ class AddTool extends Component {
               type="text"
               name="link"
               required
-              className="form-control"
               placeholder="Link for tool website"
               className={
                 errors.link && touched.link ? 'form-control is-invalid' : 'form-control'
@@ -58,7 +55,6 @@ class AddTool extends Component {
               component="textarea"
               name="description"
               required
-              className="form-control"
               placeholder="Write a short description"
               values={values.description}
               className={
@@ -71,7 +67,6 @@ class AddTool extends Component {
               component="textarea"
               name="tags"
               required
-              className="form-control"
               placeholder="Write a list of space separated tags"
               values={values.tags}
               className={
@@ -82,7 +77,7 @@ class AddTool extends Component {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button className="vuttr-button btn-add" onClick={handleSubmit}>
+          <button type="button" className="vuttr-button btn-add" onClick={handleSubmit}>
             Save Changes
           </button>
         </Modal.Footer>
@@ -101,6 +96,7 @@ const EnhancedComponent = withFormik({
   }),
   validationSchema: schema,
   handleSubmit: (values, { props }) => {
+    props.createTool(values);
   },
   enableReinitialize: true,
 })(AddTool);

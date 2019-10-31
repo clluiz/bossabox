@@ -1,5 +1,6 @@
 import * as actions from './app.actionTypes';
 import { list, remove, create } from './api/tools';
+import { string } from 'prop-types';
 
 export const searchInAllFields = search => async dispach => {
   let query = '';
@@ -33,6 +34,12 @@ export const removeTool = toolId => async dispatch => {
 };
 
 export const createTool = tool => async dispatch => {
-  await create(tool);
+
+  const toolToSave = Object.assign({}, tool);
+  if(toolToSave.tags instanceof string) {
+    toolToSave.tags = toolToSave.split(' ');
+  }
+
+  await create(toolToSave);
   dispatch(searchInAllFields());
 };
