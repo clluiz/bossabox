@@ -34,12 +34,18 @@ export const removeTool = toolId => async dispatch => {
 };
 
 export const createTool = tool => async dispatch => {
-
   const toolToSave = Object.assign({}, tool);
   if(toolToSave.tags instanceof string) {
     toolToSave.tags = toolToSave.split(' ');
   }
-
   await create(toolToSave);
   dispatch(searchInAllFields());
+  dispatch(toggleAddModal(false));
+};
+
+export const toggleAddModal = (value) => {
+  return {
+    type    : actions.TOGGLE_ADD_MODAL,
+    payload : value
+  }
 };

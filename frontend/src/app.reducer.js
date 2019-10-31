@@ -1,12 +1,8 @@
 import * as actions from './app.actionTypes';
 
 const initialState = {
-  tools: [{
-    title : 'Notion',
-    link  : 'https://www.notion.so',
-    description : 'Write, plan, collaborate, and get organized. Notion is all you need — in one tool.',
-    tags : ['organization', 'plan', 'collaboration', 'writing', 'calendar']
-  }]
+  tools           : [],
+  showingAddModal : false
 };
 
 export default (state = initialState, action) => {
@@ -15,6 +11,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         tools: action.payload,
+      };
+    case actions.TOGGLE_ADD_MODAL:
+      return {
+        ...state,
+        showingAddModal : action.payload
       };
     default:
       return state;

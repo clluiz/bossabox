@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { createTool } from "../../app.actions";
+import { createTool, toggleAddModal } from "../../app.actions";
 import { Modal } from 'react-bootstrap';
 import { Field, ErrorMessage, withFormik } from 'formik';
 import schema from './schema';
@@ -10,6 +10,20 @@ import BootstrapErrorMessage from '../BootstrapErrorMessage';
 import './index.scss';
 
 class AddTool extends Component {
+  constructor(props) {
+    super(props);
+    this.onClose = this.onClose.bind(this);
+  }
+  onClose() {
+    this.props.resetForm({
+      title       : '',
+      description : '',
+      tags        : '',
+      link        : ''
+    });
+    this.props.toggleAddModal(false);
+  }
+
   render() {
     const {
       values,
@@ -20,7 +34,7 @@ class AddTool extends Component {
       show
     } = this.props;
     return (
-      <Modal show={show}>
+      <Modal show={show} onHide={this.onClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add a new tool</Modal.Title>
         </Modal.Header>
@@ -102,7 +116,7 @@ const EnhancedComponent = withFormik({
 })(AddTool);
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ createTool }, dispatch);
+  bindActionCreators({ createTool, toggleAddModal }, dispatch);
 
 export default connect(
   null,

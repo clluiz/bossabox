@@ -1,2 +1,2 @@
 export const SEARCH_TOOLS = 'SEARCH_TOOLS';
-export const ADD_TOOL = 'ADD_TOOL';
+export const TOGGLE_ADD_MODAL   = 'TOGGLE_ADD_MODAL';

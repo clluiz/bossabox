@@ -3,7 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { bindActionCreators  } from 'redux';
-import { searchInAllFields, searchInTagsOnly  } from '../../app.actions';
+import { searchInAllFields, searchInTagsOnly, toggleAddModal  } from '../../app.actions';
 import './index.scss';
 
 import AddTool from '../AddTool';
@@ -13,8 +13,7 @@ class ControlBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tagsOnly   : false,
-      addingTool : false
+      tagsOnly   : false
     }
     this.onChangeSearch = this.onChangeSearch.bind(this);
     this.onToggleTagsOnly = this.onToggleTagsOnly.bind(this);
@@ -46,13 +45,12 @@ class ControlBar extends Component {
   }
 
   addTool() {
-    this.setState({
-      addingTool : true
-    });
+    this.props.toggleAddModal(true);
   }
 
   render() {
-    const { tagsOnly, addingTool } = this.state;
+    const { tagsOnly } = this.state;
+    const { showingAddModal } = this.props.app;
     return (
       <div className="control-bar">
         <div className="control-bar__search">
@@ -66,12 +64,13 @@ class ControlBar extends Component {
           <FontAwesomeIcon icon={faPlus} />
           Add
         </button>
-        <AddTool show={addingTool} />
+        <AddTool show={showingAddModal} />
       </div>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ searchInAllFields, searchInTagsOnly }, dispatch);
+const mapStateToProps = state => ({ app: state.app });
+const mapDispatchToProps = dispatch => bindActionCreators({ searchInAllFields, searchInTagsOnly, toggleAddModal }, dispatch);
 
-export default connect(null, mapDispatchToProps)(ControlBar);
+export default connect(mapStateToProps, mapDispatchToProps)(ControlBar);
