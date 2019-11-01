@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ControlBar from './components/ControlBar';
 import ToolList from './components/ToolList';
-
 import './App.css';
 
 class App extends Component {

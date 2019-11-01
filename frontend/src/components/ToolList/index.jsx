@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class TooList extends Component {
 
   render() {
-    const { tools } = this.props.app;
+    const { tools = [] } = this.props.app;
     return (<Fragment>
         {
           tools.map((tool, index) => { return <ToolCard {...tool} key={index}  /> })
