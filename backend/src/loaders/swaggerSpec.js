@@ -13,8 +13,11 @@ const swaggerDefinition = {
   securityDefinitions: {
     tool_auth: {
       type: 'oauth2',
-      flow: 'implicit',
-      authorizationUrl: '/login'
+      flow: 'authorizationCode',
+      authorizationUrl: `https://${process.env.AUTH0_DOMAIN}/authorize`,
+      tokenUrl: `https://${process.env.AUTH0_DOMAIN}/token`,
+      audience: process.env.AUTH0_AUDIENCE,
+      in : 'header'
     }
   }
 };

@@ -11,9 +11,9 @@ const checkJwt = jwt({
 
   audience: process.env.AUTH0_AUDIENCE,
   issuer: `https://${process.env.AUTH0_DOMAIN}/`,
-  algorithm: ["RS256"]
+  algorithm: ['RS256']
 });
 
-module.exports = (app) => {
+module.exports = app => {
   app.use(checkJwt.unless({ path: ['/swagger.json', '/login', 'logout'] }));
 };

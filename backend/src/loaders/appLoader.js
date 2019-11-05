@@ -10,7 +10,7 @@ module.exports = app => {
   app.use(swaggerUI);
   session(app);
   //auth0(app);
-  if(process.env.ENV !== 'test') {
+  if (process.env.ENV !== 'test') {
     jwt(app);
   }
   app.use(routes);
