@@ -1,15 +1,10 @@
 const Router = require('koa-router');
 const koaBody = require('koa-body');
 const controller = require('./controller');
-const authorization = require('../../loaders/authorization');
 const dotenv = require('dotenv');
 dotenv.config();
 
 const toolRoutes = new Router({ prefix: '/tools' });
-
-if (process.env.ENV !== 'test') {
-  toolRoutes.use(authorization);
-}
 
 /**
  * @swagger

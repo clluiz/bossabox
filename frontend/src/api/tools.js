@@ -8,10 +8,9 @@ axios.interceptors.response.use(function (response) {
   }
   return response;
 }, function (error) {
-  toastr.error('Error', `An error ocurred trying to exectuing operation. Error code: ${error.status}`); 
+  toastr.error('Error', error.message); 
   return Promise.reject(error);
 });
-
 
 export const list = async(query) => {
   try {
@@ -38,4 +37,4 @@ export const create = async(tool) => {
   } catch (error) {
     console.log(error);
   }  
-}
+};

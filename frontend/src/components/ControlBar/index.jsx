@@ -9,7 +9,6 @@ import './index.scss';
 import AddTool from '../AddTool';
 
 class ControlBar extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
