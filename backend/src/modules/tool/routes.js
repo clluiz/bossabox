@@ -10,6 +10,8 @@ const toolRoutes = new Router({ prefix: '/tools' });
  * @swagger
  * /tools:
  *   get:
+ *     security:
+ *       - toolAuth: []
  *     tags:
  *       - Tools
  *     summary: "Get a list of tools"
@@ -39,6 +41,8 @@ toolRoutes.get('/', koaBody({ json: true }), controller.list);
  * @swagger
  * /tools:
  *   post:
+ *     security:
+ *       - toolAuth: []
  *     tags:
  *       - Tools
  *     summary: "Create a new tool"
@@ -76,6 +80,8 @@ toolRoutes.post('/', koaBody({ json: true }), controller.save);
  * @swagger
  * /tools/{id}:
  *   delete:
+ *     security:
+ *       - toolAuth: []
  *     tags:
  *       - Tools
  *     summary: "Remove tool"
