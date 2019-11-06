@@ -12,10 +12,10 @@ const swaggerDefinition = {
   host: process.env.BASE_URI,
   securityDefinitions: {
     toolAuth: {
-      "type": "apiKey",
-      "description": 'Value: Bearer {jwt}',
-      "name": "Authorization",
-      "in": "header"
+      type: 'apiKey',
+      description: 'Value: Bearer {jwt}',
+      name: 'Authorization',
+      in: 'header'
     }
   }
 };
