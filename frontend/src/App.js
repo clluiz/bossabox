@@ -24,8 +24,8 @@ const App = () => {
         <Fragment>
           <h1>VUTTR</h1>
           <h2>Very Useful Tools to Remember</h2>
-          <ControlBar />
-          <ToolList />
+          {/* <ControlBar />
+          <ToolList /> */}
         </Fragment>
       )}
       {!isAuthenticated && loginWithRedirect()}
